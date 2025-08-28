@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aditya Kore | Video Editor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+        @layer base {
+            html {
+                @apply scroll-smooth;
+            }
+            body {
+                @apply bg-crt-bg text-crt-green font-mono overflow-y-hidden overflow-x-auto;
+                cursor: grab;
+                text-shadow: 0 0 5px currentColor;
+            }
+            body.grabbing {
+                cursor: grabbing;
+            }
+            /* Hide scrollbar for Chrome, Safari and Opera */
+            .no-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+            /* Hide scrollbar for IE, Edge and Firefox */
+            .no-scrollbar {
+                -ms-overflow-style: none;  /* IE and Edge */
+                scrollbar-width: none;  /* Firefox */
+            }
+            .crt-screen::before {
+                content: " ";
+                display: block;
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+                z-index: 100;
+                background-size: 100% 3px, 4px 100%;
+                pointer-events: none;
+                animation: flicker 0.15s infinite;
+            }
+            .crt-screen::after {
+                content: " ";
+                display: block;
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                background: radial-gradient(circle, transparent 60%, black 100%);
+                z-index: 100;
+                pointer-events: none;
+            }
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'crt-bg': '#101010',
+                        'crt-green': '#00ff41',
+                        'crt-light': '#c0c0c0'
+                    },
+                    fontFamily: {
+                        mono: ['VT323', 'monospace'],
+                    },
+                    animation: {
+                        'fade-in': 'fade-in 1s ease-out forwards',
+                        'flicker': 'flicker 0.15s infinite',
+                        'bootup-name': 'typing-name 2s steps(11), blink .5s step-end infinite alternate',
+                        'bootup-prof': 'typing-prof 1.5s steps(12), blink .5s step-end infinite alternate',
+                        'blink': 'blink .7s step-end infinite alternate',
+                    },
+                    keyframes: {
+                       'fade-in': {
+                           '0%': { opacity: '0' },
+                           '100%': { opacity: '1' },
+                        },
+                        'flicker': {
+                           '0%': { opacity: '1' },
+                           '50%': { opacity: '0.9' },
+                           '100%': { opacity: '1' },
+                        },
+                        'typing-name': {
+                            'from': { width: '0' },
+                            'to': { width: '11ch' }
+                        },
+                        'typing-prof': {
+                            'from': { width: '0' },
+                            'to': { width: '12ch' }
+                        },
+                        'blink': {
+                            '50%': { borderColor: 'transparent' }
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+
+<link rel="stylesheet" href="/index.css">
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/user_portfolio/assets/index-_SYkCZg2.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>
